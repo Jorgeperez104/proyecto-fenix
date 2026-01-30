@@ -59,5 +59,8 @@ public class ProcesadorUsuarios {
     private String procesarInvitado(String nombre) {
         return nombre + ",";
     }
+
+
+    // Cambio para probar el workflow nuevo
 }
 
