@@ -1,32 +1,45 @@
-import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Esta clase procesa listas de usuarios. Contiene 'code smells' intencionados.
- */
 public class ProcesadorUsuarios {
 
-    // Método con 'code smells': largo, números mágicos, malos nombres.
-    public String procesarLista(List<String> dataList) {
+    // Constantes para los roles
+    private static final int ROL_ADMIN = 1;
+    private static final int ROL_INVITADO = 2;
+
+    /**
+     * Procesa una lista de usuarios con formato "nombre:rol".
+     * Devuelve un String con admins e invitados separados.
+     * 
+     * @param usuarios Lista de usuarios con formato "nombre:rol"
+     * @return String con admins e invitados
+     */
+    public String procesarLista(List<String> usuarios) {
         String admins = "";
         String invitados = "";
 
-        for (String u : dataList) {
+        for (String u : usuarios) {
             String[] parts = u.split(":"); // Formato "nombre:rol"
             if (parts.length == 2) {
-                String n = parts[0];
-                int r = Integer.parseInt(parts[1]);
+                String nombre = parts[0];
+                int rol = Integer.parseInt(parts[1]);
 
-                // Número Mágico: 1 es Admin
-                if (r == 1) {
-                    admins += n + ",";
-                }
-                // Número Mágico: 2 es Invitado
-                else if (r == 2) {
-                    invitados += n + ",";
+                if (rol == ROL_ADMIN) {
+                    admins += procesarAdmin(nombre);
+                } else if (rol == ROL_INVITADO) {
+                    invitados += procesarInvitado(nombre);
                 }
             }
         }
+
         return "Admins: " + admins + " | Invitados: " + invitados;
+    }
+
+    // Métodos privados extraídos para cada rol
+    private String procesarAdmin(String nombre) {
+        return nombre + ",";
+    }
+
+    private String procesarInvitado(String nombre) {
+        return nombre + ",";
     }
 }
