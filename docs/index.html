@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Documentación Javadoc de ProcesadorUsuarios</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 20px; }
+h1, h2, h3 { color: #2E8B57; }
+code { background-color: #f4f4f4; padding: 2px 4px; border-radius: 4px; }
+pre { background-color: #f4f4f4; padding: 10px; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<h1>Clase <code>ProcesadorUsuarios</code></h1>
+<p>Clase que procesa listas de usuarios y separa admins de invitados. Permite obtener un resumen de cada rol en un solo String.</p>
+
+<h2>Constantes</h2>
+<ul>
+<li><code>ROL_ADMIN</code> – Constante que representa el rol de administrador</li>
+<li><code>ROL_INVITADO</code> – Constante que representa el rol de invitado</li>
+</ul>
+
+<h2>Métodos Públicos</h2>
+<h3><code>String procesarLista(List&lt;String&gt; usuarios)</code></h3>
+<p>Procesa una lista de usuarios en formato "nombre:rol" y devuelve un String con los admins e invitados separados.</p>
+<ul>
+<li><strong>Parámetros:</strong> <code>usuarios</code> – Lista de usuarios con formato "nombre:rol"</li>
+<li><strong>Retorno:</strong> String que contiene admins e invitados</li>
+</ul>
+
+<h2>Métodos Privados</h2>
+<h3><code>String procesarAdmin(String nombre)</code></h3>
+<p>Procesa un admin y devuelve su nombre formateado.</p>
+<ul>
+<li><strong>Parámetros:</strong> <code>nombre</code> – Nombre del admin</li>
+<li><strong>Retorno:</strong> Nombre del admin con coma al final</li>
+</ul>
+
+<h3><code>String procesarInvitado(String nombre)</code></h3>
+<p>Procesa un invitado y devuelve su nombre formateado.</p>
+<ul>
+<li><strong>Parámetros:</strong> <code>nombre</code> – Nombre del invitado</li>
+<li><strong>Retorno:</strong> Nombre del invitado con coma al final</li>
+</ul>
+
+</body>
+</html>
